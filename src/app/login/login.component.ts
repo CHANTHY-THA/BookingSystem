@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit {
   onLogin(){
    
     if(this.user.email == "Admin" && this.user.password == "12345"){
-      this.router.navigateByUrl('/home');
-      console.log('Hello wordl');
+      // this.router.navigateByUrl('/sidebar');
       this.user = {};
     }else{
       this.message = "Error test"

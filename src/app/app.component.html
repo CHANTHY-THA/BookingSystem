@@ -1,1 +1,49 @@
-<router-outlet></router-outlet>
+
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+     
+      <div class="profile">
+        <img class="imageProfile" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU" alt="">
+        <p class="username">Username</p>
+        
+      </div>
+  
+      <button class="btnComponent" routerLink="/dashboard" routerLinkActive="active-link"  mat-button>  <mat-icon class="menuicon"  aria-label="icon" color="primary">storage</mat-icon> Dasbard</button><br>
+      <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link"  mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">assignment</mat-icon> Booking Pc</button><br>
+      <button class="btnComponent" routerLink="/customer" routerLinkActive="active-link"  mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">people</mat-icon> Customers</button><br>
+      <button class="btnComponent" routerLink="/diliverer" routerLinkActive="active-link"  mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">local_shipping</mat-icon>Deliverer</button><br>
+      <button class="btnComponent" routerLink="/setting" routerLinkActive="active-link"  mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">settings</mat-icon> Settings</button><br>
+      <button class="btnexit" routerLink="/login" routerLinkActive="active-link" mat-stroked-button color="warn">Exit</button><br>
+  
+    </mat-drawer>
+  
+    <div class="buttonStart">
+    
+      <mat-toolbar color="primary">
+        <button class="iconStart" (click)="drawer.toggle()" mat-mini-fab color="light"><mat-icon>menu</mat-icon></button>
+        <span>PT computer</span>
+        <span class="example-spacer"></span>
+        <button *ngIf="showLight" mat-icon-button class="rightbtn" aria-label="Example icon-button with heart icon">
+          <mat-icon color="white">brightness_2</mat-icon>
+        </button>
+        <button mat-icon-button class="rightbtn" aria-label="Example icon-button with heart icon">
+          <mat-icon color="white">wb_sunny</mat-icon>
+        </button>
+  
+        <button mat-icon-button class="rightbtn" aria-label="Example icon-button with share icon">
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button class="rightbtn" aria-label="Example icon-button with share icon">
+          <mat-icon>shopping_cart</mat-icon>
+        </button> 
+  
+      </mat-toolbar>
+
+      <router-outlet></router-outlet>
+      
+    </div>
+  
+  </mat-drawer-container>
+  
+     
+  
