@@ -2,6 +2,18 @@ section {
     display: table;
   }
   
+  mat-expansion-panel{
+    box-shadow: none;
+    background: #fff;
+  }
+
+  p{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+  }
+
   .example-label {
     display: table-cell;
     font-size: 14px;
@@ -47,7 +59,10 @@ background-size: cover;
 height: 100%;
 border: 1px solid rgba(0, 0, 0, 0.5);
 }
-
+mat-toolbar{
+  position: sticky;
+  top: 0;
+}
 .buttonStart {
   width: 100%;
   height: 100%;
@@ -67,6 +82,7 @@ padding: 25px;
 .menuicon{
     margin-right: 10px;
 }
+
 .profile{
     display: flex;
     align-items: flex-end;
@@ -99,6 +115,8 @@ text-transform: uppercase;
     flex: 1 1 auto;
 }
 
-  
+#dashboard{
+  width: 90px;
+}
 
 

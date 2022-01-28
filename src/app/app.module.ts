@@ -21,6 +21,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { DelivererComponent } from './deliverer/deliverer.component';
 import { SettingComponent } from './setting/setting.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatExpansionModule,
 
   ],
   providers: [],
