@@ -12,7 +12,7 @@
 .booking-icon,
 .revenue-icon,
 .delivery-icon,
-.fa {
+.follow-icon {
     width: 25%;
     height: 100px;
     padding: 35px;
@@ -47,16 +47,12 @@
     background: rgb(243, 95, 157);
 }
 
-.fa{
-    width: 86%;
-    height: 94px;
+.follow-icon{
     background: rgb(15, 212, 212);
-    margin-top: -38%;
 }
 
 
-.icon,
-.fa-twitter{
+.icon{
     font-size: 40px;
     color: #fff;
 }

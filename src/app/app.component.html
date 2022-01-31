@@ -1,7 +1,30 @@
 
+<mat-toolbar color="primary">
+  <button class="iconStart" (click)="drawer.toggle()" mat-button color="light"><mat-icon>menu</mat-icon></button>
+  <button id="dashboard" routerLink="/dashboard" mat-button>Dashbard</button>
+  
+  <span class="example-spacer"></span>
+  <button *ngIf="showLight" mat-mini-button class="rightbtn" aria-label="icon-button with heart icon">
+    <mat-icon color="white">brightness_2</mat-icon>
+  </button>
+  <button mat-icon-button class="rightbtn" aria-label="Example icon-button with heart icon">
+    <mat-icon color="white">wb_sunny</mat-icon>
+  </button>
+
+  <button mat-icon-button class="rightbtn">
+    <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+  </button>
+  <button mat-icon-button class="rightbtn">
+    <mat-icon matBadge="4" matBadgeColor="warn">shopping_cart</mat-icon>
+  </button> 
+</mat-toolbar>
+
+
 <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-     
+
+  <!-- ==================================Menu======================= -->
+  <mat-drawer #drawer class="sidebar" mode="side">  <!--mode="side"-->
+    <div class="sidenav">
       <div class="profile">
         <img class="imageProfile" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU" alt="">
         <p class="username">Username</p>
@@ -14,11 +37,11 @@
           <mat-panel-title>
             <p><mat-icon class="menuicon" color="primary">assignment</mat-icon> Booking Pc</p>
           </mat-panel-title>
-         
+        
         </mat-expansion-panel-header>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking</button><br>
+        <button class="btnComponent" routerLink="/bookingForm" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Form</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
       </mat-expansion-panel>
 
       <!-- Customer route -->
@@ -30,9 +53,9 @@
           <mat-panel-description></mat-panel-description>
         </mat-expansion-panel-header>
 
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
       </mat-expansion-panel>
 
       <!-- Deliverer route -->
@@ -43,10 +66,10 @@
           </mat-panel-title>
           <mat-panel-description></mat-panel-description>
         </mat-expansion-panel-header>
-       
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+      
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
       </mat-expansion-panel>
 
       <!-- Setting route -->
@@ -58,44 +81,23 @@
           <mat-panel-description></mat-panel-description>
         </mat-expansion-panel-header>
       
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
-        <button class="btnComponent" routerLink="/booking" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
+        <button class="btnComponent" routerLink="/" routerLinkActive="active-link" mat-button>  <mat-icon class="menuicon" aria-label="icon" color="primary">arrow_right</mat-icon> Booking Pc</button><br>
       </mat-expansion-panel>
-       
+      
       <button class="btnexit" routerLink="/login" routerLinkActive="active-link" mat-stroked-button color="warn">Exit</button><br>
   
-
-    </mat-drawer>
-  
-    <div class="buttonStart">
-    
-      <mat-toolbar color="primary">
-        <button class="iconStart" (click)="drawer.toggle()" mat-mini-fab color="light"><mat-icon>menu</mat-icon></button>
-        <button class="btnComponent" id="dashboard" routerLink="/dashboard" mat-button>Dasbard</button>
-        
-        <span class="example-spacer"></span>
-        <button *ngIf="showLight" mat-icon-button class="rightbtn" aria-label="Example icon-button with heart icon">
-          <mat-icon color="white">brightness_2</mat-icon>
-        </button>
-        <button mat-icon-button class="rightbtn" aria-label="Example icon-button with heart icon">
-          <mat-icon color="white">wb_sunny</mat-icon>
-        </button>
-  
-        <button mat-icon-button class="rightbtn" aria-label="Example icon-button with share icon">
-          <mat-icon>notifications</mat-icon>
-        </button>
-        <button mat-icon-button class="rightbtn" aria-label="Example icon-button with share icon">
-          <mat-icon>shopping_cart</mat-icon>
-        </button> 
-  
-      </mat-toolbar>
-
-      <router-outlet></router-outlet>
-      
     </div>
-  
-  </mat-drawer-container>
-  
-     
-  
+  </mat-drawer>
+
+  <!-- ====================================================-->
+
+  <div class="buttonStart">
+    <router-outlet></router-outlet>
+    
+  </div>
+
+</mat-drawer-container>
+
+   

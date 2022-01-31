@@ -1,4 +1,33 @@
+
+.table-container{
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 2%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
 table {
-    width: 100%;
-  }
-  
+  width: 100%;
+}
+
+th{
+  color: blueviolet;
+}
+.action:hover{
+  cursor: pointer;
+}
+button{
+  outline: none;
+}
+.header{
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 5px;
+  margin-bottom: -2%;
+}
+
+.head{
+  font-size: 18px;
+}

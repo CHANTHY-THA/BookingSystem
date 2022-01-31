@@ -1,10 +1,18 @@
-section {
+  
+  .sidebar{
+    background-image: url('https://images.pexels.com/photos/259707/pexels-photo-259707.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    position: center;
+    background-size: cover;
+  }
+  
+  section {
     display: table;
   }
   
   mat-expansion-panel{
     box-shadow: none;
     background: #fff;
+    margin-top: 5%;
   }
 
   p{
@@ -42,9 +50,6 @@ section {
     width: 120px;
   }
   
-
-
-
   .example-card {
     max-width: 100%;
 }
@@ -55,11 +60,10 @@ background-size: cover;
 }
 
 .example-container {
-
-height: 100%;
-border: 1px solid rgba(0, 0, 0, 0.5);
+  height: 94vh;
 }
 mat-toolbar{
+  height: 6vh;
   position: sticky;
   top: 0;
 }
@@ -73,12 +77,12 @@ mat-toolbar{
     outline: none;
 }
 .iconStart{
-margin: 20px;
-outline: none;
+  outline: none;
 }
 .sidenav {
-padding: 25px;
+  padding: 10px;
 }
+
 .menuicon{
     margin-right: 10px;
 }
@@ -86,7 +90,7 @@ padding: 25px;
 .profile{
     display: flex;
     align-items: flex-end;
-    margin-bottom: 10%;
+    margin: 10% 3%;
 }
 .imageProfile{
 border-radius: 360px;
@@ -95,7 +99,8 @@ height: 50px;
 margin:0 3%
 }
 .username{
-text-transform: uppercase;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .btnComponent{
@@ -116,7 +121,8 @@ text-transform: uppercase;
 }
 
 #dashboard{
-  width: 90px;
+  outline: none;
+  font-size: 18px;
 }
 
 

@@ -9,11 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BookingComponent } from './booking/booking.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
-import { DataTableComponent } from './data-table/data-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -22,6 +21,17 @@ import { DelivererComponent } from './deliverer/deliverer.component';
 import { SettingComponent } from './setting/setting.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -30,11 +40,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
     LoginComponent,
     BookingComponent,
     PageNotfoundComponent,
-    DataTableComponent,
     CustomerComponent,
     DelivererComponent,
     SettingComponent,
     DashboardComponent,
+    BookingFormComponent,
+    DialogComponent,
    
   ],
   imports: [
@@ -51,6 +62,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatPaginatorModule,
     MatSortModule,
     MatExpansionModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule,
 
   ],
   providers: [],
