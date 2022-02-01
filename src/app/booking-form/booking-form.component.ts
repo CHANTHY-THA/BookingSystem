@@ -35,6 +35,8 @@ export class BookingFormComponent implements OnInit {
     }
     
     customerList.push(newCustomer);
+    console.log(customerList);
+    
     return customerList;
   }
 

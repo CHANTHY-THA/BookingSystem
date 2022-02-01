@@ -8,15 +8,22 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./booking.component.scss']
 })
 export class BookingComponent implements OnInit {
+  filterValue: string = '';
   constructor() { }
   ngOnInit(): void {
+    
   }
 
   displayedColumns: string[] = ['customer', 'phone', 'email', 'address','action'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  // ========Search==========
+  applyFilter(event: Event) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  }
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -31,31 +38,31 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfs' },
-  { customer: 'Chanthy thaggggggggggggggggggggggdgdgdgggd', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf sfsfsdfsfsdfsf' },
-  { customer: 'Chanthy thaggggggggggggggggdgdgdgggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf sfsfsdfsf sfsdfsf' },
-  { customer: 'Chanthy thagggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf sfsfsdfsf sfsf' },
-  { customer: 'Chanthy thagggggggggggggdgggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf sfsfsdfsf sfsf' },
-  { customer: 'Chanthy thaggggggggggggggggggggggdgggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsffsf sfsf' },
-  { customer: 'Chanthy thaggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf sfsfsdfsf sfsf' },
-  { customer: 'Chanthy thaggggggggggggggggggggggdgggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf sfsfsdfsf sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf sfsfsdfsf sfsf' },
-  { customer: 'Chanthy thagggggggggggdgggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsff sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
-  { customer: 'Chanthy thagggggggggggggggggdgdgdg', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh fdffsf fsfsfsf fsfsfs fsfsfsdf f sfsf' },
+  { customer: 'Phearak', phone: '1111111111111' , email: 'info@gmail.com', address: 'KPC' },
+  { customer: 'Lyhor', phone: '222222222222' , email: 'info@gmail.com', address: 'PP' },
+  { customer: 'Chanthy tha', phone: '333333333333' , email: 'info@gmail.com', address: 'BTB' },
+  { customer: 'Pisan', phone: '4444444444' , email: 'pisan@gmail.com', address: 'Phnom Penh sfsf' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
+  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
 
 ];
 
