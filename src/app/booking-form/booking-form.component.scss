@@ -54,9 +54,13 @@ input.example-right-align {
     outline: none;
 }
 
-.save-btn{
+.save-btn,
+.cancel-btn{
     outline: none;
     float: right;
+}
+.cancel-btn{
+    margin-right: 10px;
 }
 
 .mat-form-field {

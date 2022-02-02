@@ -1,6 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { customer } from '../interface/dataType';
+import { RemoveDialogComponent } from '../remove-dialog/remove-dialog.component';
+import { DataListService } from '../services/data-list.service';
 
 @Component({
   selector: 'app-booking',
@@ -9,13 +15,21 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class BookingComponent implements OnInit {
   filterValue: string = '';
-  constructor() { }
+
+  listItems: customer[] = [] ;
+
+  constructor(private listItem: DataListService,private snackBar: MatSnackBar, public dialog: MatDialog, ) { }
   ngOnInit(): void {
-    
+    this.displayItem();
   }
 
-  displayedColumns: string[] = ['customer', 'phone', 'email', 'address','action'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayItem(){
+    this.listItems = this.listItem.getItemList();
+    this.dataSource = new MatTableDataSource(this.listItems);
+  }
+
+  displayedColumns: string[] = ['no','customer', 'phone', 'email', 'address','action'];
+  dataSource! : MatTableDataSource<any>;
 
   // ========Search==========
   applyFilter(event: Event) {
@@ -24,45 +38,31 @@ export class BookingComponent implements OnInit {
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
+  deleteItem(id: number){
+    console.log(id);
+    this.listItem.removeItem(id);
+    this.displayItem();
+    this.snackBar.open("Deleted", 'Dissmiss', {duration: 2500});
+  }
+
+  updatedataItem(element: any){
+    console.log(element); 
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RemoveDialogComponent, {
+      width: '300px',
+    });
+  }
 }
 
-export interface PeriodicElement {
-  customer: string;
-  phone: string;
-  email: string;
-  address: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { customer: 'Phearak', phone: '1111111111111' , email: 'info@gmail.com', address: 'KPC' },
-  { customer: 'Lyhor', phone: '222222222222' , email: 'info@gmail.com', address: 'PP' },
-  { customer: 'Chanthy tha', phone: '333333333333' , email: 'info@gmail.com', address: 'BTB' },
-  { customer: 'Pisan', phone: '4444444444' , email: 'pisan@gmail.com', address: 'Phnom Penh sfsf' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
-  { customer: 'Chanthy tha', phone: '098765gdg433' , email: 'info@gmail.com', address: 'Phnom Penh ' },
 
-];
 

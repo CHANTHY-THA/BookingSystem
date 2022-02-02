@@ -33,6 +33,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
+
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DashboardComponent,
     BookingFormComponent,
     DialogComponent,
+    RemoveDialogComponent,
    
   ],
   imports: [
