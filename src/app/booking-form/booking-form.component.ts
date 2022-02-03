@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component';
-import { customer } from '../interface/dataType';
-import { DataListService } from '../services/data-list.service';
+import { customerType } from '../interface/dataType';
+import { ServicesComponent } from '../services/services.component';
 
 @Component({
   selector: 'app-booking-form',
@@ -17,41 +16,48 @@ export class BookingFormComponent implements OnInit {
   email: string = '';
   address: string = '';
   hide = true;
-  animal: string = '';
-  name: string = '';
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
-    private router: Router,
     public dialog: MatDialog,
-    private newCustomer: DataListService,
+    private newCustomer: ServicesComponent,
   ) { }
 
   ngOnInit(): void {
 
   }
 
+  // ===============Update item===============
+  updateItem(element: any){
+    this.customer= element.customer;
+    this.phone= element.phone;
+    this.email= element.email;
+    this.address= element.address;
+
+    console.log(element);
+    
+  }
+
   // ==============Get value from input==============
   createCustomer() {
-    let customer: customer = {
+    let customer: customerType = {
       customer: this.customer,
       phone: this.phone,
       email: this.email,
       address: this.address
     }
 
+    console.log(customer);
+    
+
     if (this.customer == '' || this.phone == '' || this.email == '' || this.address == '') {
-      
+
     } else {
       this.newCustomer.addItem(customer);
     }
 
   }
 
-  // ===============Update item===============
-  // updateItem(element: any){
-  //   console.log(element);
-  // }
 
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();

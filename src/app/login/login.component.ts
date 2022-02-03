@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,27 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(
-    private router: Router
-  ) { }
-
-  user: any = {};
-  message: string = "";
+  form: FormGroup;
+  eye = "";
+  constructor(private fb: FormBuilder,private snackBar: MatSnackBar, private route: Router) {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  onLogin(){
-   
-    if(this.user.email == "Admin" && this.user.password == "12345"){
-      // this.router.navigateByUrl('/sidebar');
-      this.user = {};
+  loginAccount(){
+    console.log(this.form.value);
+    let username = this.form.value.username;
+    let password = this.form.value.password;
+
+    if(username == "Admin" && password == "123"){
+      this.snackBar.open("Login success", 'Dissmiss', {duration: 2500});
+      this.route.navigateByUrl('/dashboard');
     }else{
-      this.message = "Error test"
-     
+      this.snackBar.open("Invalid user or password", 'Dissmiss', {duration: 2500});
     }
-    
+   
+  
   }
 
 }

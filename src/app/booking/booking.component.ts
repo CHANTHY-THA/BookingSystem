@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { customer } from '../interface/dataType';
+import { BookingFormComponent } from '../booking-form/booking-form.component';
+import { customerType } from '../interface/dataType';
 import { RemoveDialogComponent } from '../remove-dialog/remove-dialog.component';
-import { DataListService } from '../services/data-list.service';
+import { ServicesComponent } from '../services/services.component';
 
 @Component({
   selector: 'app-booking',
@@ -16,9 +16,14 @@ import { DataListService } from '../services/data-list.service';
 export class BookingComponent implements OnInit {
   filterValue: string = '';
 
-  listItems: customer[] = [] ;
+  listItems: customerType[] = [] ;
 
-  constructor(private listItem: DataListService,private snackBar: MatSnackBar, public dialog: MatDialog, ) { }
+  constructor(
+    private listItem: ServicesComponent,
+    public dialog: MatDialog, 
+    private removeItem: RemoveDialogComponent,
+    private editItem: BookingFormComponent,
+    ) { }
   ngOnInit(): void {
     this.displayItem();
   }
@@ -45,21 +50,16 @@ export class BookingComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  deleteItem(id: number){
-    console.log(id);
-    this.listItem.removeItem(id);
-    this.displayItem();
-    this.snackBar.open("Deleted", 'Dissmiss', {duration: 2500});
-  }
-
   updatedataItem(element: any){
-    console.log(element); 
+    this.editItem.updateItem(element);
   }
 
-  openDialog(): void {
+  deleteItem(id: number) {
+    this.removeItem.deleteCustomer(id);
     const dialogRef = this.dialog.open(RemoveDialogComponent, {
       width: '300px',
     });
+
   }
 }
 

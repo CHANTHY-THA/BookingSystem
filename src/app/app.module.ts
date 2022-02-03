@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +34,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
-
+import { ServicesComponent } from './services/services.component';
 
 
 @NgModule({
@@ -50,13 +50,15 @@ import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
     BookingFormComponent,
     DialogComponent,
     RemoveDialogComponent,
-   
+    ServicesComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
     MatSidenavModule,
@@ -78,7 +80,12 @@ import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
     MatTooltipModule,
 
   ],
-  providers: [],
+  providers: [
+    RemoveDialogComponent,
+    BookingComponent,
+    BookingFormComponent,
+    ServicesComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
