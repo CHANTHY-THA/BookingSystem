@@ -1,4 +1,17 @@
+body{
+    margin: 0;
+    padding: 0;
+}
 
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)) , url('../../assets/img/bg4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
 
 button{
     outline: none;
@@ -14,7 +27,8 @@ button{
 form{
     width: 100%;
     padding: 25px;
-    margin-top: 30%;
+    background: none;
+    margin: 0;
     background: none;
 }
 mat-form-field{
@@ -29,6 +43,18 @@ h1{
 }
 
 .btnSubmit{
-    margin-top: 12%;
+    margin-top: 10%;
 }
 
+.password,
+.username{
+    display: flex;
+    align-items: center;
+}
+mat-icon{
+    margin-right: 10px;
+}
+
+.card{
+    width: 30%;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   eye = "";
-  constructor(private fb: FormBuilder,private snackBar: MatSnackBar, private route: Router) {
+  isLogin: boolean = true;
+  constructor(private fb: FormBuilder,private snackBar: MatSnackBar, private route: Router, private logined: AppComponent) {
     this.form = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -29,6 +31,8 @@ export class LoginComponent implements OnInit {
     if(username == "Admin" && password == "123"){
       this.snackBar.open("Login success", 'Dissmiss', {duration: 2500});
       this.route.navigateByUrl('/dashboard');
+      this.logined.onLogin(this.isLogin);
+      localStorage.setItem('username', username);
     }else{
       this.snackBar.open("Invalid user or password", 'Dissmiss', {duration: 2500});
     }

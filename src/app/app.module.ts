@@ -35,6 +35,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
 import { ServicesComponent } from './services/services.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { ServicesComponent } from './services/services.component';
     MatNativeDateModule,
     MatSnackBarModule,
     MatTooltipModule,
+    HttpClientModule,
 
   ],
   providers: [
